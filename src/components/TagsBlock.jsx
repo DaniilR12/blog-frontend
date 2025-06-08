@@ -1,5 +1,3 @@
-import React from "react";
-
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -15,7 +13,7 @@ export const TagsBlock = ({ items, isLoading = true }) => {
   return (
     <SideBlock title="Тэги">
       <List>
-        {(isLoading ? [...Array(5)] : items).map((name, i) => (
+        {(isLoading ? [...Array(5)] : (Array.isArray(items)?items:[])).map((name, i) => (
           <Link
             style={{ textDecoration: "none", color: "black" }}
             to={`/tags/${name}`}

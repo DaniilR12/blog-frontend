@@ -11,7 +11,7 @@ import { fetchPosts, fetchTags } from '../redux/slices/posts';
 
 export const Home = () => {
   const dispatch = useDispatch()
-  const userData = useSelector(state=>state.auth.data)
+  const userData = useSelector(state => state.auth.data)
   const { posts, tags } = useSelector(state => state.posts)
 
   const isPostsLoading = posts.status === 'loading'
@@ -29,13 +29,13 @@ export const Home = () => {
       </Tabs>
       <Grid container spacing={4}>
         <Grid xs={8} item>
-          {(isPostsLoading ? [...Array(5)] : posts.items).map((value, index) => isPostsLoading ? <Post key={index} isLoading={true} /> : (
+          {(isPostsLoading ? [...Array(5)] : Array.isArray(posts.items) ? posts.items : []).map((value, index) => isPostsLoading ? <Post key={index} isLoading={true} /> : (
             <Post
               id={value._id}
               title={value.title}
-              imageUrl={value.imageUrl?value.imageUrl:""}
+              imageUrl={value.imageUrl ? value.imageUrl : ""}
               user={{
-                avatarUrl:value.user.avatarUrl ? value.user.avatarUrl:'https://i.pinimg.com/736x/90/f7/a4/90f7a49893bc987858e13e10ffc72a23.jpg',
+                avatarUrl: value.user.avatarUrl ? value.user.avatarUrl : 'https://i.pinimg.com/736x/90/f7/a4/90f7a49893bc987858e13e10ffc72a23.jpg',
                 fullName: value.user.fullName,
               }}
               createdAt={value.user.createdAt}
@@ -47,7 +47,7 @@ export const Home = () => {
           ))}
         </Grid>
         <Grid xs={4} item>
-          <TagsBlock items={tags.items||[]} isLoading={isTagsLoading} />
+          <TagsBlock items={Array.isArray(tags.items) ? tags.items : []} isLoading={isTagsLoading} />
           <CommentsBlock
             items={[
               {

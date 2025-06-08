@@ -20,7 +20,7 @@ export const Home = () => {
   useEffect(() => {
     dispatch(fetchPosts())
     dispatch(fetchTags())
-  }, [])
+  }, [dispatch])
   return (
     <>
       <Tabs style={{ marginBottom: 15 }} value={0} aria-label="basic tabs example">

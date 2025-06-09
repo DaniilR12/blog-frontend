@@ -32,7 +32,7 @@ export const FullPost = () => {
       <Post
         id={data._id}
         title={data.title}
-        imageUrl={`https://site-backend-wbcb.onrender.com${data.imageUrl}`}
+        imageUrl={data.imageUrl}
         user={{
           avatarUrl:
             data.user.avatarUrl,

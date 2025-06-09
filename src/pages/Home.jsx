@@ -33,7 +33,7 @@ export const Home = () => {
             <Post
               id={value._id}
               title={value.title}
-              imageUrl={value.imageUrl ?`https://site-backend-wbcb.onrender.com${value.imageUrl}`: ""}
+              imageUrl={value.imageUrl ? value.imageUrl: ""}
               user={{
                 avatarUrl: value.user.avatarUrl ? value.user.avatarUrl : 'https://i.pinimg.com/736x/90/f7/a4/90f7a49893bc987858e13e10ffc72a23.jpg',
                 fullName: value.user.fullName,

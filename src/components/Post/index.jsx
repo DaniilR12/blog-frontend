@@ -54,7 +54,7 @@ export const Post = ({
       {imageUrl && (
         <img
           className={clsx(styles.image, { [styles.imageFull]: isFullPost })}
-          src={`https://site-backend-wbcb.onrender.com/${imageUrl}`}
+          src={`${process.env.REACT_APP_API_URL}/${imageUrl}`}
           alt={title}
         />
       )}

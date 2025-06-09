@@ -56,7 +56,7 @@ export const AddPost = () => {
         text,
       }
 
-      const { data } = isEditing ? await axios.patch(`posts/${id}`, fields) : await axios.post('/posts', fields)
+      const { data } = isEditing ? await axios.patch(`/posts/${id}`, fields) : await axios.post('/posts', fields)
 
       const _id = isEditing ? id :data._id
 
@@ -69,7 +69,7 @@ export const AddPost = () => {
 
   useEffect(() => {
     if (id) {
-      axios.get(`posts/${id}`).then(({ data }) => {
+      axios.get(`/posts/${id}`).then(({ data }) => {
         setTitle(data.title)
         setText(data.text)
         setTags(data.tags)
@@ -115,7 +115,7 @@ export const AddPost = () => {
           <Button variant="contained" color="error" onClick={onClickRemoveImage}>
             Удалить
           </Button>
-          <img className={styles.image} src={`${process.env.RECT_APP_API_URL}${imageUrl}`} alt="Uploaded" />
+          <img className={styles.image} src={`${process.env.RECT_APP_API_URL}/${imageUrl}`} alt="Uploaded" />
         </>
       )}
       <br />

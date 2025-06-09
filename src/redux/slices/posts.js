@@ -13,7 +13,7 @@ export const fetchTags = createAsyncThunk('posts/fetchTags',async ()=>{
 })
 
 export const fetchRemovePost = createAsyncThunk('posts/fetchRemovePost',async (id)=>{
-  return axios.delete(`posts/${id}`)
+  return axios.delete(`/posts/${id}`)
 })
 
 const initialState = {

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: 'https://site-backend-wbcb.onrender.com/'
+  baseURL:process.env.RECT_APP_API_URL,
 });
 
 instance.interceptors.request.use((config)=>{
